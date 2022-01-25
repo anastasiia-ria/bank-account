@@ -7,9 +7,64 @@
   <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
   <script src='js/main.js'></script>
-  <title></title>
+  <title>Epicodus Banks United</title>
 </head>
 <body>
-
+  <form id="form1">
+    <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <h3>Register a new account:</h3>
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name">
+          </div>
+          <div class="form-group">
+            <label for="initail-deposit">Initial Deposit:</label>
+            <input type="number" id="initial-deposit">
+          </div>
+        </div>
+        <div class="col-6">
+          <h3>Log Into Your Account</h3>
+          <div class="form-group">
+            <label for="login-name">Name:</label>
+            <input type="text" id="login-name">
+          </div>
+          <div class="form-group">
+            <label for="account-number">Account number:</label>
+            <input type="number" id="acount-number">
+          </div>
+        </div>
+        <button type="submit" id="submit">Submit</button>
+      </div>
+      <div class="row hidden">
+        <div class="col-6">
+          <h3>Withdraw & Deposit</h3>
+          <div class="form-group radio">
+            <input type="radio" id="withdraw" value="withdraw" name="operation">
+            <label for="withdraw">Withdraw</label>
+            <input type="radio" id="deposit" value="deposit" name="operation">
+            <label for="deposit">Deposit</label>
+          </div>
+          <div class="form-group">
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount">
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <h3>Account Details</h3>
+            <label for="balance">Current Balance:</label>
+            <p><span class="balance"></span></p>
+            <p><span class="name"></span></p>
+            <p><span class="account-number"></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div id="error-message">
+    <h3>Sorry we couldn't find your account. Please try again</h3>
+  </div>
 </body>
 </html>

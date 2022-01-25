@@ -1,0 +1,35 @@
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+input, label {
+  width: 100%;
+}
+
+input {
+  margin: 5px;
+}
+
+.radio label, .radio input{
+  width: inherit;
+}
+
+.hidden {
+  display:none;
+}
+
+#submit {
+  width: 100px;
+  margin: auto;
+}
+
+#error-message {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  background-color: red;
+}
