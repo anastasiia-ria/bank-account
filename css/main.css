@@ -19,7 +19,7 @@ input {
   display:none;
 }
 
-#submit {
+button, #submit-amount {
   width: 100px;
   margin: auto;
 }

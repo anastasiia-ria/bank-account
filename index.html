@@ -10,10 +10,10 @@
   <title>Epicodus Banks United</title>
 </head>
 <body>
-  <form id="form1">
-    <div class="container">
-      <div class="row">
-        <div class="col-6">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <form id="register">
           <h3>Register a new account:</h3>
           <div class="form-group">
             <label for="name">Name:</label>
@@ -23,8 +23,11 @@
             <label for="initail-deposit">Initial Deposit:</label>
             <input type="number" id="initial-deposit">
           </div>
-        </div>
-        <div class="col-6">
+          <button type="submit">Register</button>
+        </form>
+      </div>
+      <div class="col-6">
+        <form id="login">
           <h3>Log Into Your Account</h3>
           <div class="form-group">
             <label for="login-name">Name:</label>
@@ -32,13 +35,15 @@
           </div>
           <div class="form-group">
             <label for="account-number">Account number:</label>
-            <input type="number" id="acount-number">
+            <input type="number" id="account-number">
           </div>
-        </div>
-        <button type="submit" id="submit">Submit</button>
+          <button type="submit">Log in</button>
+        </form> 
       </div>
-      <div class="row hidden">
-        <div class="col-6">
+    </div>
+    <div class="row hidden">
+      <div class="col-6">
+        <form id="operations">
           <h3>Withdraw & Deposit</h3>
           <div class="form-group radio">
             <input type="radio" id="withdraw" value="withdraw" name="operation">
@@ -50,21 +55,19 @@
             <label for="amount">Amount:</label>
             <input type="number" id="amount">
           </div>
-        </div>
-        <div class="col-6">
-          <div class="form-group">
-            <h3>Account Details</h3>
-            <label for="balance">Current Balance:</label>
-            <p><span class="balance"></span></p>
-            <p><span class="name"></span></p>
-            <p><span class="account-number"></span></p>
-          </div>
-        </div>
+          <button type="button" class="submit-amount">Submit</button>
+        </form>
+      </div>
+      <div class="col-6">
+        <h3>Account Details</h3>
+        <p>Name: <span class="name"></span></p>
+        <p>Account Number: <span class="account-number"></span></p>
+        <p>Current Balance: <span class="balance"></span></p>
       </div>
     </div>
-  </form>
+  </div>
   <div id="error-message">
-    <h3>Sorry we couldn't find your account. Please try again</h3>
+    <h3>There was an error, please try again</h3>
   </div>
 </body>
 </html>
