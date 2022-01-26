@@ -33,15 +33,6 @@ Account.prototype.operations = function(number, id) {
   showAccountDetails(id);
 }
 
-function login(userName, userId) {
-  account = bankList.findAccount(userId);
-  if (account.name === userName) {
-    showAccountDetails(userId);
-  } else {
-    $("#error-message").show().delay(8000);
-  }
-}
-
 //User Interface Logic ------
 let bankList = new BankList();
 
@@ -70,9 +61,17 @@ function registerAccount(account) {
   showAccountDetails(account.id);
 }
 
-$(document).ready(function() {
-  let account = 0;
+function login(name, id) {
+  let account = bankList.findAccount(id);
+  if (account.name === name) {
+    showAccountDetails(id)
+  } else {
+    $("#error-message").show().delay(8000);
+  }
+}
 
+$(document).ready(function() {
+  
   $("form#register").submit(function(event) {
     event.preventDefault();
     const registerName = $('input#name').val();
@@ -84,54 +83,28 @@ $(document).ready(function() {
     let newAccount = new Account(registerName, initialDeposit);
     registerAccount(newAccount);
     
-    let account = bankList.findAccount(newAccount.id);
-    console.log(account);
-    $(".submit-amount").removeAttr("id");
-    $(".submit-amount").attr("id","submit-register");
+  });
+
+  $("form#login").submit(function(event) {
+    event.preventDefault();
+    const loginName = $('input#login-name').val();
+    const accountNumber = parseInt($('input#account-number').val());
     
-    console.log(newAccount.id)
+    $('input#login-name').val("");
+    $('input#account-number').val("");
+
+    login(loginName, accountNumber);
     
   });
 
   $('button.submit-amount').click(function () {
     let operation = $('input[name="operation"]:checked').val();
     let amount = parseInt($('input#amount').val());
-  
+    let id = parseInt($(".account-number").text());
+    console.log(id);
+
     $('input#amount').val("");
-    
-    console.log(operation)
-    console.log(amount)
-    console.log(account.id)
-    operationChoice(operation, amount, account.id);
-    
+    operationChoice(operation, amount, id);
   });
-
-  /*$("form#login").submit(function() {
-    const loginName = $('input#login-name').val();
-    const accountNumber = parseInt($('input#account-number').val());
-    
-    console.log(loginName)
-    console.log(accountNumber)
-    $('input#login-name').val("");
-    $('input#account-number').val("");
-    
-    login(loginName, accountNumber);
-
-    $(".submit-amount").removeAttr("id");
-    $(".submit-amount").attr("id","submit-login");
-
-    $('button#submit-login').click(function (event) {
-      event.preventDefault();
-       operation = $('input[name="operation"]:checked').val();
-      let amount = parseInt($('input#amount').val());
-    
-      $('input#amount').val("");
-      console.log(operation)
-      console.log(amount)
-      console.log(accountNumber)
-
-      operationChoice(operation, amount, accountNumber);
-      
-    });
-  });*/
+  
 });
